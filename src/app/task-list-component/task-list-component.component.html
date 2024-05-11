@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<div class="task-list">
+  <h2>Task List</h2>
+  <table class="task-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Deadline</th>
+        <th colspan="2">Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks" class="task-item">
+        <td>{{ task.title }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.deadline }}</td>
+        <td class="task-status" [ngClass]="{'completed': task.completed, 'pending': !task.completed}">
+          {{ task.completed ? 'Completed' : 'Pending' }}
+        </td>
+        <td class="task-status">
+          <i class="fas fa-check completed" *ngIf="task.completed"></i>
+          <i class="fas fa-times pending" *ngIf="!task.completed"></i>
+        </td>
+        <td>
+          <button (click)="updateTaskStatus(task)" class="btn btn-sm btn-outline-primary">
+            <i class="fas fa-check-circle"></i> {{ task.completed ? 'Mark as Pending' : 'Mark as Completed' }}
+          </button>
+          <button (click)="deleteTask(task)" class="btn btn-sm btn-outline-danger">
+            <i class="fas fa-trash-alt"></i> Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button routerLink="/add-task" class="btn btn-primary add-task-button">Add Task</button>
+</div>

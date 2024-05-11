@@ -1,4 +1,17 @@
 import { Component } from '@angular/core';
+import { gql } from 'apollo-angular';
+
+const TASKS_QUERY = gql`
+  query {
+    tasks {
+      id
+      title
+      description
+      deadline
+      completed
+    }
+  }
+`;
 
 @Component({
   selector: 'app-root',
@@ -6,5 +19,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TASKTEC-web';
+  
+  tasks: any;
+
+  constructor() {}
+
+  
 }
