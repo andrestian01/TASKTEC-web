@@ -13,6 +13,10 @@
         <label for="deadline" class="form-label">Deadline</label>
         <input type="date" class="form-control" id="deadline" name="deadline" [(ngModel)]="newTask.deadline" required>
       </div>
+      <div class="form-group mb-3">
+        <label for="category" class="form-label">Category</label>
+        <input type="text" class="form-control" id="category" name="category" [(ngModel)]="newTask.category" required>
+      </div>
       <button type="submit" class="btn btn-primary">Add Task</button>
       
     </form>
