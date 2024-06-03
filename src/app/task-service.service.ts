@@ -21,6 +21,7 @@ export class TaskService {
           description
           deadline
           completed
+          category
         }
       }
     `;
@@ -31,13 +32,14 @@ export class TaskService {
 
   addTask(newTask: Task): Observable<Task> {
     const mutation = `
-      mutation AddTask($title: String!, $description: String!, $deadline: String!) {
-        addTask(title: $title, description: $description, deadline: $deadline) {
+      mutation AddTask($title: String!, $description: String!, $deadline: String!, $category: String!) {
+        addTask(title: $title, description: $description, deadline: $deadline,category: $category) {
           id
           title
           description
           deadline
           completed
+          category
         }
       }
     `;
@@ -45,7 +47,8 @@ export class TaskService {
     const variables = {
       title: newTask.title,
       description: newTask.description,
-      deadline: newTask.deadline
+      deadline: newTask.deadline,
+      category: newTask.category
     };
   
     return this.http.post<{ data: { addTask: Task } }>(this.apiUrl, { query: mutation, variables }).pipe(
@@ -67,6 +70,7 @@ export class TaskService {
           description
           deadline
           completed
+          category
         }
       }
     `;
@@ -88,6 +92,7 @@ export class TaskService {
           description
           deadline
           completed
+          category
         }
       }
     `;

@@ -9,7 +9,7 @@ import { TaskService } from '../task-service.service';
   styleUrls: ['./task-add.component.css']
 })
 export class TaskAddComponent {
-  newTask: Task = { title: '', description: '', deadline: '', completed: false };
+  newTask: Task = { title: '', description: '', deadline: '', completed: false, category: '' };
   errorMessage: string = '';
 
   constructor(private taskService: TaskService, private router: Router) { }
@@ -22,7 +22,7 @@ export class TaskAddComponent {
         this.taskService.addTask(this.newTask).subscribe(
           () => {
             // Lógica para manejar la respuesta del servidor (p. ej., actualizar la lista de tareas)
-            this.newTask = { title: '', description: '', deadline: '', completed: false };
+            this.newTask = { title: '', description: '', deadline: '', completed: false,category: '' };
             this.errorMessage = ''; // Reiniciar mensaje de error
             // Redirigir de vuelta a la lista de tareas
             this.router.navigate(['/tasks']);

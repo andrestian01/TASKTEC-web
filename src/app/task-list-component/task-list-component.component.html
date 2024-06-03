@@ -8,6 +8,7 @@
         <th>Title</th>
         <th>Description</th>
         <th>Deadline</th>
+        <th>Category</th> <!-- Nueva columna para la categoría -->
         <th colspan="2">Status</th>
         <th>Actions</th>
       </tr>
@@ -17,6 +18,7 @@
         <td>{{ task.title }}</td>
         <td>{{ task.description }}</td>
         <td>{{ task.deadline }}</td>
+        <td>{{ task.category }}</td> <!-- Campo de categoría añadido aquí -->
         <td class="task-status" [ngClass]="{'completed': task.completed, 'pending': !task.completed}">
           {{ task.completed ? 'Completed' : 'Pending' }}
         </td>

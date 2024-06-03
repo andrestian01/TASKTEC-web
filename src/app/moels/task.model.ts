@@ -5,5 +5,6 @@ export interface Task {
     description: string;
     deadline: string;
     completed: boolean;
+    category: string;
   }
   
