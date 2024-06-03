@@ -1,3 +1,4 @@
+// task-service.service.ts
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
@@ -21,6 +22,8 @@ export class TaskService {
           description
           deadline
           completed
+          timeTaken
+          
         }
       }
     `;
@@ -38,6 +41,8 @@ export class TaskService {
           description
           deadline
           completed
+          timeTaken
+          createdAt
         }
       }
     `;
@@ -45,7 +50,7 @@ export class TaskService {
     const variables = {
       title: newTask.title,
       description: newTask.description,
-      deadline: newTask.deadline
+      deadline: newTask.deadline,
     };
   
     return this.http.post<{ data: { addTask: Task } }>(this.apiUrl, { query: mutation, variables }).pipe(
@@ -67,6 +72,7 @@ export class TaskService {
           description
           deadline
           completed
+          timeTaken
         }
       }
     `;
@@ -88,6 +94,7 @@ export class TaskService {
           description
           deadline
           completed
+          timeTaken
         }
       }
     `;
