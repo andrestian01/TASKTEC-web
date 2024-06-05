@@ -10,6 +10,7 @@ import { TaskService } from '../task-service.service';
 })
 export class TaskListComponent implements OnInit {
   tasks: Task[] = [];
+  filteredTasks: Task[] = [];
 
   constructor(private taskService: TaskService) {}
 
@@ -22,10 +23,18 @@ export class TaskListComponent implements OnInit {
       this.tasks = tasks.map(task => ({
         ...task,
         deadline: moment(task.deadline).format('YYYY-MM-DD'),
-        completedAt: moment(task.completedAt).format('YYYY-MM-DD'),
-        //createdAt: moment(task.createdAt).format('YYYY-MM-DD HH:mm:ss')
+        completedAt: task.completedAt ? moment(task.completedAt).format('YYYY-MM-DD') : undefined,  // Usar undefined aquí
       }));
+      this.filteredTasks = this.tasks;
     });
+  }
+
+  filterTasks(showCompleted: boolean | null): void {
+    if (showCompleted === null) {
+      this.filteredTasks = this.tasks;
+    } else {
+      this.filteredTasks = this.tasks.filter(task => task.completed === showCompleted);
+    }
   }
 
   updateTaskStatus(task: Task): void {
@@ -36,7 +45,7 @@ export class TaskListComponent implements OnInit {
         this.tasks[index] = {
           ...updatedTask,
           deadline: moment(updatedTask.deadline).format('YYYY-MM-DD'),
-          createdAt: moment(updatedTask.createdAt).format('YYYY-MM-DD HH:mm:ss')
+          completedAt: updatedTask.completedAt ? moment(updatedTask.completedAt).format('YYYY-MM-DD') : undefined,  // Usar undefined aquí
         };
       }
     });
@@ -45,6 +54,7 @@ export class TaskListComponent implements OnInit {
   deleteTask(task: Task): void {
     this.taskService.deleteTask(task).subscribe(() => {
       this.tasks = this.tasks.filter(t => t.id !== task.id);
+      this.filteredTasks = this.filteredTasks.filter(t => t.id !== task.id);
     });
   }
 
