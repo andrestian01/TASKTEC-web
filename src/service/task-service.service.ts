@@ -39,6 +39,67 @@ export class TaskService {
     );
   }
 
+  // getTask(taskId: string): Observable<Task> {
+  //   const query = `
+  //     query GetTask($id: ID!) {
+  //       task(id: $id) {
+  //         id
+  //         title
+  //         description
+  //         deadline
+  //         completed
+  //         timeTaken
+  //         category
+  //       }
+  //     }
+  //   `;
+  //   const variables = { id: taskId };
+
+  //   return this.http.post<{ data: { task: Task } }>(this.apiUrl, { query, variables }).pipe(
+  //     map(response => response.data.task),
+  //     catchError(error => {
+  //       console.error('Error retrieving task:', error);
+  //       return throwError('Could not retrieve task details; please try again later.');
+  //     })
+  //   );
+  // }
+
+  // updateTask(updatedTask: Task): Observable<Task> {
+  //   const mutation = `
+  //     mutation UpdateTask($id: ID!, $title: String!, $description: String!, $deadline: String!, $completed: Boolean!, $timeTaken: Int!, $category: String!) {
+  //       updateTask(id: $id, title: $title, description: $description, deadline: $deadline, completed: $completed, timeTaken: $timeTaken, category: $category) {
+  //         id
+  //         title
+  //         description
+  //         deadline
+  //         completed
+  //         timeTaken
+  //         createdAt
+  //         category
+  //       }
+  //     }
+  //   `;
+    
+  //   const variables = {
+  //     id: updatedTask.id,
+  //     title: updatedTask.title,
+  //     description: updatedTask.description,
+  //     deadline: updatedTask.deadline,
+  //     completed: updatedTask.completed,
+  //     timeTaken: updatedTask.timeTaken,
+  //     category: updatedTask.category
+  //   };
+  
+  //   const headers = this.getAuthHeaders();
+  //   return this.http.post<{ data: { updateTask: Task } }>(this.apiUrl, { query: mutation, variables }, { headers }).pipe(
+  //     map(response => response.data.updateTask),
+  //     catchError(error => {
+  //       console.error('Error updating task:', error);
+  //       return throwError('Could not update task; please try again later.');
+  //     })
+  //   );
+  // }
+
   addTask(newTask: Task): Observable<Task> {
     const mutation = `
       mutation AddTask($title: String!, $description: String!, $deadline: String!, $category: String!) {

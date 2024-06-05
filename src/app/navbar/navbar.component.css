@@ -1,0 +1,31 @@
+/* styles.css (o cualquier otro archivo CSS donde quieras agregar estilos personalizados) */
+
+/* Estilo para el navbar */
+.navbar {
+    border-radius: 0;
+    padding: 15px;
+
+  }
+  
+  /* Estilo para el enlace de bienvenida y logout */
+  .navbar-nav .nav-link {
+    color: #ffffff;
+  }
+  
+  /* Estilo de fondo para los enlaces */
+  .navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Alinear el elemento 'Welcome' y 'Logout' a la derecha */
+  .navbar-nav.ml-auto .nav-link {
+    margin-left: 10px;
+
+
+  }
+
+  .user{
+    margin-left: 10px;
+  }
+  

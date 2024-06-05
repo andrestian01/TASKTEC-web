@@ -17,6 +17,7 @@ interface AuthResponse {
 })
 export class AuthService {
   private apiUrl = 'http://localhost:4000/graphql'; // URL de tu API GraphQL
+  private user: any = null;
 
   constructor(private http: HttpClient) { }
 
@@ -56,7 +57,6 @@ export class AuthService {
       }
     `;
     const variables = { username, password };
-
     return this.http.post<{ data: { login: AuthResponse } }>(this.apiUrl, { query: mutation, variables }).pipe(
       map(response => response.data.login),
       catchError(error => {
@@ -66,8 +66,10 @@ export class AuthService {
     );
   }
 
-  saveToken(token: string): void {
+  saveToken(token: string, username: string): void {
     localStorage.setItem('authToken', token);
+    localStorage.setItem('currentUser', JSON.stringify({ username }));
+    this.user = { username };
   }
 
   getToken(): string | null {
@@ -76,9 +78,18 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('authToken');
+    localStorage.removeItem('currentUser');
+    this.user = null;
   }
 
   isAuthenticated(): boolean {
     return !!this.getToken();
   }
+
+  getUsername(): string {
+    const user = localStorage.getItem('currentUser');
+    return user ? JSON.parse(user).username : '';
+  }
+  
+  
 }

@@ -16,9 +16,10 @@ import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ShareTaskComponent } from './share-task/share-task.component';
+import { UpdateTaskComponent } from './update-task/update-task.component';
 
 @NgModule({
-  declarations: [AppComponent, TaskListComponent, TaskAddComponent, LoginComponent, RegisterComponent, NavbarComponent, SidebarComponent, ShareTaskComponent],
+  declarations: [AppComponent, TaskListComponent, TaskAddComponent, LoginComponent, RegisterComponent, NavbarComponent, SidebarComponent, ShareTaskComponent, UpdateTaskComponent],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [
     {

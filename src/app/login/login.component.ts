@@ -18,7 +18,7 @@ export class LoginComponent {
   login(): void {
     this.authService.login(this.username, this.password).subscribe({
       next: (response) => {
-        this.authService.saveToken(response.token);
+        this.authService.saveToken(response.token, this.username);
         this.router.navigate(['/tasks']);
       },
       error: (err) => this.error = err

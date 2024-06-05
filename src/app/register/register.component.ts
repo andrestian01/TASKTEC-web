@@ -19,7 +19,7 @@ export class RegisterComponent {
     this.authService.register(this.username, this.password).subscribe(
       (response) => {
         if (response && response.token) {
-          this.authService.saveToken(response.token);
+          this.authService.saveToken(response.token, this.username);
           this.router.navigate(['/tasks']);
         } else {
           // Handle error or unexpected response

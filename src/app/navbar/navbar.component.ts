@@ -16,11 +16,11 @@ export class NavbarComponent {
     this.router.navigate(['/login']);
   }
 
-  // get username(): string {
-  //   return this.authService.getUsername();
-  // }
+  get username(): string {
+    return this.authService.getUsername();
+  }
+  
+  
 
-  // get email(): string {
-  //   return this.authService.getEmail();
-  // }
+
 }
