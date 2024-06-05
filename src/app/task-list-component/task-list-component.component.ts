@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { TaskService } from '../../service/task-service.service';
 import { Task } from '../moels/task.model';
-import { TaskService } from '../task-service.service';
 
 @Component({
   selector: 'app-task-list',

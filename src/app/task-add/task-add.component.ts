@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TaskService } from '../../service/task-service.service';
 import { Task } from '../moels/task.model'; // Corregir el nombre del archivo
-import { TaskService } from '../task-service.service';
 
 @Component({
   selector: 'app-task-add',

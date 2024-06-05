@@ -1,0 +1,31 @@
+<!-- sidebar.component.html -->
+<div class="d-flex flex-column p-3 bg-light" style="width: 280px; height: 100vh;">
+    <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <span class="fs-4">Task Manager</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a routerLink="/add-task" class="nav-link active" aria-current="page">
+          Add Task
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/task-list" class="nav-link">
+          Task List
+        </a>
+      </li>
+    </ul>
+    <hr>
+    <div class="dropdown">
+      <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-toggle="dropdown" aria-expanded="false">
+        <!-- <strong>{{ username }}</strong> -->
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="dropdownUser1">
+        <!-- <li><a class="dropdown-item" href="#">{{ email }}</a></li> -->
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+  
