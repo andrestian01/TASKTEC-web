@@ -3,24 +3,32 @@
 
 <div class="task-list w-80">
   <h2>Task List</h2>
+  <!-- Botones para filtrar tareas -->
+  <div class="filter-buttons">
+    <button (click)="filterTasks(true)" class="btn btn-success">Show Completed Tasks</button>
+    <button (click)="filterTasks(false)" class="btn btn-warning">Show Pending Tasks</button>
+    <button (click)="filterTasks(null)" class="btn btn-info">Show All Tasks</button>
+  </div>
   <table class="task-table">
     <thead>
       <tr>
         <th>Title</th>
         <th>Description</th>
         <th>Deadline</th>
-        <th>Category</th> <!-- Nueva columna para la categoría -->
-        <th colspan="2">Status</th>
+        <th>Category</th>
+        <th>Status</th>
+        <th>Completion Icon</th>
         <th>Time Taken</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let task of tasks" class="task-item">
+      <!-- Itera sobre filteredTasks en lugar de tasks -->
+      <tr *ngFor="let task of filteredTasks" class="task-item">
         <td>{{ task.title }}</td>
         <td>{{ task.description }}</td>
         <td>{{ task.deadline }}</td>
-        <td>{{ task.category }}</td> <!-- Campo de categoría añadido aquí -->
+        <td>{{ task.category }}</td>
         <td class="task-status" [ngClass]="{'completed': task.completed, 'pending': !task.completed}">
           {{ task.completed ? 'Completed' : 'Pending' }}
         </td>
@@ -28,7 +36,6 @@
           <i class="fas fa-check completed" *ngIf="task.completed"></i>
           <i class="fas fa-times pending" *ngIf="!task.completed"></i>
         </td>
-
         <td>{{ formatTimeTaken(task.timeTaken) }}</td>
         <td>
           <button (click)="updateTaskStatus(task)" class="btn btn-sm btn-outline-primary">
