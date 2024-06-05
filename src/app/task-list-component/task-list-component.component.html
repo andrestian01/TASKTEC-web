@@ -7,7 +7,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 <div class="task-list w-80">
-  <h2>Task List</h2>
+
+<h2>Task List
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchTitle" (input)="filterTasksb()" placeholder="Search tasks by title">
+    <button class="clear-button" (click)="clearSearch()">Clear</button>
+  </div>
+</h2>
   <!-- Botones para filtrar tareas -->
   <div class="filter-buttons">
     <button (click)="filterTasks(true)" class="btn btn-success">Show Completed Tasks</button>
