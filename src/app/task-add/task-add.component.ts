@@ -17,7 +17,8 @@ export class TaskAddComponent {
     timeTaken: 0, // Agregar el campo timeTaken
     createdAt: '',
     completedAt: '', 
-    category: '' 
+    category: '', 
+    imageUrl:''
   };
 
   errorMessage: string = '';
@@ -28,7 +29,7 @@ export class TaskAddComponent {
     if (this.isValidTask()) {
       this.taskService.addTask(this.newTask).subscribe(
         () => {
-          this.newTask = { title: '', description: '', deadline: '', completed: false, timeTaken: 0, createdAt: '', completedAt: '',category: ''  };
+          this.newTask = { title: '', description: '', deadline: '', completed: false, timeTaken: 0, createdAt: '', completedAt: '',category: '',imageUrl:''  };
           this.errorMessage = '';
           this.router.navigate(['/tasks']);
         },

@@ -27,8 +27,9 @@
         <th>Description</th>
         <th>Deadline</th>
         <th>Category</th>
-        <th>Status</th>
-        <th>Completion Icon</th>
+        <th>image/document</th>
+        <th colspan="2">Status</th>
+        
         <th>Time Taken</th>
         <th>Actions</th>
       </tr>
@@ -39,7 +40,10 @@
         <td>{{ task.title }}</td>
         <td>{{ task.description }}</td>
         <td>{{ task.deadline }}</td>
-        <td>{{ task.category }}</td>
+        <td>{{ task.category }}</td> <!-- Campo de categoría añadido aquí -->
+        <td>{{task.imageUrl}}</td>
+        
+
         <td class="task-status" [ngClass]="{'completed': task.completed, 'pending': !task.completed}">
           {{ task.completed ? 'Completed' : 'Pending' }}
         </td>
