@@ -10,7 +10,7 @@ import { TaskService } from '../task-service.service';
 })
 export class TaskListComponent implements OnInit {
   tasks: Task[] = [];
-
+  searchTitle:string='';
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
@@ -51,5 +51,21 @@ export class TaskListComponent implements OnInit {
   formatTimeTaken(timeTaken: number): string {
     const duration = moment.duration(timeTaken);
     return `${duration.hours()}h ${duration.minutes()}m ${duration.seconds()}s`;
+  }
+  filterTasks() {
+    // Filtrar las tareas basadas en el título
+    // Si `searchTitle` está vacío, mostrar todas las tareas
+    if (!this.searchTitle.trim()) {
+      this.loadTasks();
+    } else {
+      this.tasks = this.tasks.filter(task =>
+        task.title.toLowerCase().includes(this.searchTitle.trim().toLowerCase())
+      );
+    }
+  }
+
+  clearSearch(): void {
+    this.searchTitle = ''; // Limpiar el campo de búsqueda
+    this.loadTasks(); // Volver a cargar todas las tareas
   }
 }

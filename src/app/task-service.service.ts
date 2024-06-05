@@ -12,6 +12,7 @@ export class TaskService {
   private apiUrl = 'http://localhost:4000/graphql'; // URL de tu API GraphQL
 
   constructor(private http: HttpClient) { }
+  
 
   getTasks(): Observable<Task[]> {
     const query = `
