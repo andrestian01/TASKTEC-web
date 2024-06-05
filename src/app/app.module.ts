@@ -11,9 +11,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TaskAddComponent } from './task-add/task-add.component';
 import { TaskListComponent } from './task-list-component/task-list-component.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { ShareTaskComponent } from './share-task/share-task.component';
 
 @NgModule({
-  declarations: [AppComponent, TaskListComponent, TaskAddComponent],
+  declarations: [AppComponent, TaskListComponent, TaskAddComponent, LoginComponent, RegisterComponent, NavbarComponent, SidebarComponent, ShareTaskComponent],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [
     {
