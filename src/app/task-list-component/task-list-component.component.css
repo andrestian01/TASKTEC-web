@@ -1,97 +1,178 @@
 .task-list {
-    max-width: 800px;
-    margin: auto;
-    padding-top: 50px;
-  }
-  
-  .task-table {
-    width: 100%;
-    border-collapse: collapse;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para la tabla */
-  }
-  
-  .task-table th, .task-table td {
-    padding: 8px;
-    border: 1px solid #ddd;
-    transition: background-color 0.3s ease;
-  }
-  
-  .task-table th {
-    background-color: #007bff; /* Color de fondo para los encabezados */
-    color: #fff; /* Color de texto para los encabezados */
-    text-align: left;
-  }
-  
-  .task-item {
-    background-color: #fff;
-  }
-  
-  .task-item:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  .task-status {
-    font-weight: bold;
-  }
-  
-  .completed {
-    color: green;
-  }
-  
-  .pending {
-    color: red;
-  }
-  
-  .add-task-button,
-  .btn-outline-primary,
-  .btn-outline-danger {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .add-task-button {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  .add-task-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .btn-outline-primary {
-    background-color: transparent;
-    color: #007bff;
-    border: 1px solid #007bff;
-  }
-  
-  .btn-outline-primary:hover {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  .btn-outline-danger {
-    background-color: transparent;
-    color: #dc3545;
-    border: 1px solid #dc3545;
-  }
-  
-  .btn-outline-danger:hover {
-    background-color: #dc3545;
-    color: #fff;
-  }
-  
-  /* Diseño adaptable para diferentes tamaños de pantalla */
-  @media (max-width: 900px) {
-    .task-list {
+  max-width: 100%; /* Amplía el ancho máximo */
+  margin: auto;
+  padding-top: 50px;
+  padding-left: 30px; /* Añade padding a la izquierda */
+  padding-right: 30px; /* Añade padding a la derecha */
+  padding-bottom: 20px; /* Padding en la parte inferior */
+}
+
+.task-table {
+  margin-top: 5px; /* Nuevo margen superior */
+  margin-bottom: 10px;
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para la tabla */
+}
+
+.task-table th, .task-table td {
+  padding: 12px; /* Más padding para mejorar legibilidad */
+  border: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+.task-table th {
+  background-color: #007bff; /* Color de fondo para los encabezados */
+  color: #fff; /* Color de texto para los encabezados */
+  text-align: left;
+}
+
+.task-item {
+  background-color: #fff;
+}
+
+.task-item:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.task-status {
+  font-weight: bold;
+}
+
+.completed {
+  color: green;
+}
+
+.pending {
+  color: red;
+}
+
+/* .add-task-button,
+.btn-outline-primary,
+.btn-outline-danger {
+  margin-top: 20px;
+  padding: 15px 25px; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 16px; 
+}
+
+.add-task-link,
+.btn-outline-primary,
+.btn-outline-danger {
+  display: inline-block;
+  width: auto; 
+}
+
+.add-task-button {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.add-task-button:hover {
+  background-color: #0056b3;
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  color: #007bff;
+  border: 2px solid #007bff; 
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-outline-danger {
+  background-color: transparent;
+  color: #dc3545;
+  border: 2px solid #dc3545; 
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: #fff;
+} */
+
+/* Diseño adaptable para diferentes tamaños de pantalla */
+@media (max-width: 900px) {
+  .task-list {
       padding: 20px;
-    }
-  
-    .task-table th, .task-table td {
-      padding: 5px;
-    }
   }
-  
+
+  .task-table th, .task-table td {
+      padding: 10px; /* Padding más pequeño para pantallas pequeñas */
+  }
+}
+
+.btn {
+  padding: 10px 20px; /* Espaciado uniforme */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold; /* Texto más destacado */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0 5px; /* Espaciado entre botones */
+}
+
+.btn-success {
+  background-color: #28a745; /* Verde */
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.btn-warning {
+  background-color: #ffc107; /* Amarillo */
+  color: black;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+.btn-info {
+  background-color: #17a2b8; /* Azul claro */
+  color: white;
+}
+
+.btn-info:hover {
+  background-color: #138496;
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  color: #007bff; /* Azul */
+  border: 2px solid #007bff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-outline-danger {
+  background-color: transparent;
+  color: #dc3545; /* Rojo */
+  border: 2px solid #dc3545;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+.add-task-button {
+  background-color: #007bff; /* Azul */
+  color: white;
+  font-size: 16px;
+}
+
+.add-task-button:hover {
+  background-color: #0056b3;
+}
