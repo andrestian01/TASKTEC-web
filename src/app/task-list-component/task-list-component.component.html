@@ -17,6 +17,7 @@
         <th>Description</th>
         <th>Deadline</th>
         <th>Category</th> <!-- Nueva columna para la categoría -->
+        <th>image/document</th>
         <th colspan="2">Status</th>
         <th>Time Taken</th>
         <th>Actions</th>
@@ -28,6 +29,9 @@
         <td>{{ task.description }}</td>
         <td>{{ task.deadline }}</td>
         <td>{{ task.category }}</td> <!-- Campo de categoría añadido aquí -->
+        <td>{{task.imageUrl}}</td>
+        
+
         <td class="task-status" [ngClass]="{'completed': task.completed, 'pending': !task.completed}">
           {{ task.completed ? 'Completed' : 'Pending' }}
         </td>

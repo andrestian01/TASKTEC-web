@@ -8,9 +8,8 @@ export interface Task {
   completedAt?: string;
   timeTaken: number;  // Tiempo en milisegundos
   createdAt?: string; // Agregar la propiedad createdAt
-    category: string;
-  imageURL?: string; 
-  documentURL?: string; 
+  category: string;
+  imageUrl?: string; 
   }
   
 

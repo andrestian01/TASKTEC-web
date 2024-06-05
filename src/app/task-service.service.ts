@@ -25,6 +25,7 @@ export class TaskService {
           completed
           timeTaken
           category
+          imageUrl
         }
       }
     `;
@@ -35,8 +36,8 @@ export class TaskService {
 
   addTask(newTask: Task): Observable<Task> {
     const mutation = `
-      mutation AddTask($title: String!, $description: String!, $deadline: String!, $category: String!) {
-        addTask(title: $title, description: $description, deadline: $deadline,category: $category) {
+      mutation AddTask($title: String!, $description: String!, $deadline: String!, $category: String!, $imageUrl: String) {
+        addTask(title: $title, description: $description, deadline: $deadline, category: $category, imageUrl: $imageUrl) {
           id
           title
           description
@@ -45,6 +46,7 @@ export class TaskService {
           timeTaken
           createdAt
           category
+          imageUrl
         }
       }
     `;
@@ -53,7 +55,8 @@ export class TaskService {
       title: newTask.title,
       description: newTask.description,
       deadline: newTask.deadline,
-      category: newTask.category
+      category: newTask.category,
+      imageUrl: newTask.imageUrl || '' // Asegúrate de que imageUrl tenga un valor
     };
   
     return this.http.post<{ data: { addTask: Task } }>(this.apiUrl, { query: mutation, variables }).pipe(
@@ -77,6 +80,7 @@ export class TaskService {
           completed
           timeTaken
           category
+          imageUrl
         }
       }
     `;
@@ -100,6 +104,7 @@ export class TaskService {
           completed
           timeTaken
           category
+          imageUrl
         }
       }
     `;
